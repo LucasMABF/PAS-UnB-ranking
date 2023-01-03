@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking Resultados PAS</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+<h1>Ranking Resultados PAS</h1>
+    <div class="controls">
+        <form method="post">
+            <input type="text" name="registros" placeholder="Filtrar por pessoa" />
+            <button type="submit">adicionar</button>
+        </form>
+        <form method="post" id="dropdownoptions">
+          <select name="orderby" onchange="document.getElementById('dropdownoptions').submit()">
+              {% if orderby == 1 %}
+                <option value="1">Nota Final</option>
+                <option value="2">Somatório escores brutos PAS1</option>
+                <option value="3">Nota Redação</option>
+                <option value="4">Nota Item tipo D</option>
+              {% elif orderby == 2 %}
+                <option value="2">Somatório escores brutos PAS1</option>
+                <option value="1">Nota Final</option>
+                <option value="3">Nota Redação</option>
+                <option value="4">Nota Item tipo D</option>
+              {% elif orderby == 3 %}
+                <option value="3">Nota Redação</option>
+                <option value="1">Nota Final</option>
+                <option value="2">Somatório escores brutos PAS1</option>
+                <option value="4">Nota Item tipo D</option>
+              {% else %}
+                <option value="4">Nota Item tipo D</option>
+                <option value="3">Nota Redação</option>
+                <option value="1">Nota Final</option>
+                <option value="2">Somatório escores brutos PAS1</option>
+              {% endif %}
+          </select>
+        </form>
+    </div>
+    <div id="registros">
+        {% for registro in registros %}
+            <form method="post" class="registros" id="close{{registros.index(registro)}}">
+                    <input type="hidden" name="closeregistro" value="{{registro}}">
+                    <span id="registro">
+                        {{registro}} <a href="#" onclick="document.getElementById('close{{registros.index(registro)}}').submit()">X</a>
+                    </span>
+            </form>
+        {% endfor %}
+    </div>
+    <div class="database-info">
+        <table>
+            <tr>
+                <th>Posição</th>
+                <th>Nome</th>
+                <th>Nota Final PAS1</th>
+                <th>Somatório Escores Brutos PAS1</th>
+                <th>Nota Redação PAS1</th>
+                <th>Nota Item TIPO D PAS1</th>
+            </tr>
+            {% for line in content %}
+            <tr>
+                <td>{{line[0]}}</td>
+                <td>{{line[1]}}</td>
+                <td>{{line[2]}}</td>
+                <td>{{line[3]}}</td>
+                <td>{{line[4]}}</td>
+                <td>{{line[5]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <footer>
+      <p>Feito Por <a href="https://github.com/lucasmabf" target="_blank">Lucas Mendes</a></p>
+        <p> buy me a &#x1F37A: bitcoin: $bitcoin address ethereum polygon: $ethereum address solana: $solana address bitcoin cash: $bitcoin cash address dogecoin: $dogecoin address</p>
+    </footer>
+</body>
+</html>
