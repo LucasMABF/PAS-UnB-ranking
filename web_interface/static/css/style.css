@@ -1,13 +1,21 @@
+:root {
+    --cor1: #8AB0AB;
+    --cor2: #3E505B;
+    --cor3: #26413C;
+    --cor4: #1A1D1A;
+    --cor5: #03120E;
+}
+
 body {
-    background-color: #1A1D1A;
-    color: #8AB0AB;
+    background-color: var(--cor5);
+    color: var(--cor1);
     font-family: Arial, sans-serif;
     margin: 0;
 
 }
 
 h1 {
-    color: #3E505B;
+    color: var(--cor3);
     text-align: center;
 }
 
@@ -21,7 +29,7 @@ h1 {
 .controls input[type="text"] {
     width: 300px;
     height: 30px;
-    border: 2px solid #3E505B;
+    border: 2px solid var(--cor2);
     border-radius: 5px;
     padding: 0 10px;
 }
@@ -30,8 +38,8 @@ h1 {
     margin-left: 10px;
     width: 100px;
     height: 35px;
-    background-color: #3E505B;
-    color: white;
+    background-color: var(--cor2);
+    color: var(--cor1);
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -41,19 +49,19 @@ h1 {
     margin-left: 10px;
     width: 150px;
     height: 35px;
-    background-color: #8AB0AB;
-    color: #3E505B;
-    border: 2px solid #3E505B;
+    background-color: var(--cor1);
+    color: var(-cor3);
+    border: 2px solid var(--cor2);
     border-radius: 5px;
     font-size: 14px;
 }
 
 .database-info {
     padding: 15px;
-    background-color: #3E505B;
+    background-color: var(--cor2);
     color: white;
     border-radius: 5px;
-    display:block;
+    display: block;
     width: 80%;
     margin: 30px auto;
     min-height: 90vh;
@@ -61,56 +69,51 @@ h1 {
 
 footer {
     width: 100%;
-    background-color: #26413C;
+    background-color: var(--cor3);
     color: white;
     padding: 0;
 }
 
-footer > p{
+footer>p {
     margin: 0px;
     padding: 5px;
 }
 
-footer > p > a{
-    color: #3E505B;
-}
-
-.notaFinalPAS1{
-    margin:auto;
+footer>p>a {
+    color: var(--cor2);
 }
 
 table {
-    border-line: white;
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 tr {
-  display: table-row;
+    display: table-row;
 }
 
 td, th {
-  display: table-cell;
-  border: 2px solid #26413C;
-  padding: 8px;
+    display: table-cell;
+    border: 2px solid #03120e98;
+    padding: 8px;
 }
 
 #registros {
-    font-size: 10px;
-    line-height: 30px;
+    font-size: 1vw;
+    line-height: 2vw;
 
 }
 
-#registros span{
-    background-color: #26413C;
+#registros span {
+    background-color: var(--cor3);
     border-radius: 10px;
     padding: 5px;
     margin: 10px;
 
 }
 
-#registros a{
+#registros a {
     color: red;
 }
 

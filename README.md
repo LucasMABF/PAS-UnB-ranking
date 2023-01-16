@@ -15,7 +15,7 @@ mostrar mais facilmente a posição geral.
 ---
 # Etapas
 
-Etapas do processo de extração e reorganização dos dados presentes do PDF disponibilizado pela Unb:
+Etapas do processo de extração e reorganização dos dados presentes do PDF disponibilizado pela UnB:
 
 1. Rodar o código python no arquivo `pdf-to-txt.py` no mesmo diretório que o PDF.
 
@@ -28,3 +28,19 @@ vários valores que foram "harcoded" para esse documento em específico.
 2. Rodar o código python no arquivo `txt_to_db.py` com o banco de dados rodando e o arquivo criado anteriormente,
  `PAS1.txt`, no mesmo diretório.
 - Esse código vai gerar os registros em um banco de dados, `Resultados_PAS`, a partir do arquivo `txt.`.
+
+Depois dos dados já em um banco de dados, eles são muito mais fáceis de manipular, e de organizar de acordo com as 
+notas, a partir do `ORDER BY` do MySQL.
+
+Depois disso criei uma interface gráfica, por meio do flask, que mostra em um site toda a informação do banco de dados, 
+permitindo diferentes organizações e filtros. O python acessa os dados do banco de dados e fornece para o usuário de 
+uma maneira formatada em HTML e CSS.
+
+No entanto, é muito mais difícil hospedar um site com um backend, que nem esse feito com flask, por isso estou 
+considerando tornar o site completamente estático, e usar JavaScript para manipular os dados que fornecerei em formato 
+de uma lista em JavaScript, para não ter que usar um banco de dados. Essa abordagem tem algumas desvantagens, como a 
+maior dificuldade de lidar com os dados em JavaScript e não em um banco de dados, e ter que mandar todos os dados, que 
+estão em grande quantidade, para o usuário.
+
+Se eu for postar esse site, e torná-lo acessível, é muito mais fácil trocar toda a lógica do backend por uma de página 
+estática. Assim eu posso hospedar no GitHub pages, de graça.
