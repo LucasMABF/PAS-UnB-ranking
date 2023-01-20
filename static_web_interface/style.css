@@ -126,10 +126,6 @@ td, th {
     padding: 5px;
 }
 
-.registros {
-    display: inline;
-}
-
 button:hover{
     cursor: pointer;
 }

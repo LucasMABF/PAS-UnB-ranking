@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking Resultados PAS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--info-->
+<h1>Ranking Resultados PAS</h1>
+    <div class="controls">
+        <input type="text" id="registro" placeholder="Filtrar por pessoa" value="" autocomplete="off"/>
+        <button id="filterbutton">adicionar</button>
+        <select id="orderby">
+            <option value="1">Nota Final</option>
+            <option value="2">Somatório Escores Brutos</option>
+            <option value="3">Nota Redação</option>
+            <option value="4">Nota Item Tipo D</option>
+        </select>
+        <!--specific names-->
+    </div>
+    <div id="registros"></div>
+    <div class="database-info">
+        <table id="table">
+            <tr><!--dict-->
+                <th>Posição</th>
+                <th>Nome</th>
+                <th>Nota Final PAS1</th>
+                <th>Somatório Escores Brutos PAS1</th>
+                <th>Nota Redação PAS1</th>
+                <th>Nota Item TIPO D PAS1</th>
+            </tr>
+        </table>
+    </div>
+    <footer>
+      <p>Feito Por <a href="https://github.com/lucasmabf" target="_blank">Lucas Mendes</a></p>
+        <p> buy me a &#x1F37A: bitcoin: $bitcoin address ethereum polygon: $ethereum address solana: $solana address bitcoin cash: $bitcoin cash address dogecoin: $dogecoin address</p>
+    </footer>
+    <script src="Notas_PAS1.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
