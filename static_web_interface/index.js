@@ -5,7 +5,7 @@ function renderResults(){
     let table = document.getElementById('table');
     table.innerHTML = ''
     let HeadearRow = document.createElement('tr')
-    let titles = ['Posição', 'Nome', 'Nota Final PAS1', 'Somatório Escores Brutos PAS1 ', 'Nota Redação PAS1', 'Nota Item Tipo D PAS1'];
+    let titles = ['Posição', 'Nome', '<abbr title="Somatório escores brutos + Redação + item tipo D">Nota Final</abbr>', 'Somatório Escores Brutos', 'Nota Redação', 'Nota Item Tipo D'];
     for (let t = 0; t < titles.length; t++){
         let NewHeader = document.createElement('th');
         NewHeader.innerHTML = titles[t];
@@ -73,7 +73,15 @@ function addToFilter(event){
         let registro = registroField.value.trim()
         registroField.value = ''
         if (registro.length != 0){
-            filter.push(registro.toLowerCase())
+            let replaced = registro.toLowerCase()
+            let replace_characters = [['á', 'à', 'ã', 'â'], ['é', 'ê'], ['í', 'î'], ['ó', 'ô', 'õ'], ['ú', 'û'], ['ç']]
+            let replacements = ['a', 'e', 'i', 'o', 'u', 'c']
+            for(let i = 0; i < replace_characters.length; i++){
+                for(let j = 0; j < replace_characters[i].length; j++){
+                    replaced = replaced.replace(replace_characters[i][j], replacements[i])
+                }
+            }
+            filter.push(replaced)
             let registros = document.getElementById('registros')
             let span = document.createElement('span')
             span.innerHTML = registro
@@ -94,12 +102,30 @@ function removeRegistros(event){
     renderResults();
 }
 
+function openModal(){
+    let modal = document.getElementById('modal');
+    modal.style.display = "block";
+    document.addEventListener('click', closeModal);
+}
+
+function closeModal(event){
+    let open_info = document.getElementById('open_info')
+    let info = document.getElementById('modal-info');
+    if(!info.contains(event.target) && !open_info.contains(event.target)){
+        let modal = document.getElementById('modal');
+        modal.style.display = "none";
+        document.removeEventListener("click", closeModal)
+    }
+}
+
 
 
 let orderby = document.getElementById('orderby');
 orderby.addEventListener('change', changeOrder);
 let filterbutton = document.getElementById('filterbutton');
-let filtertextbox = document.getElementById('registro')
-filtertextbox.addEventListener('keydown', addToFilter)
-filterbutton.addEventListener('click', addToFilter)
+let filtertextbox = document.getElementById('registro');
+filtertextbox.addEventListener('keydown', addToFilter);
+filterbutton.addEventListener('click', addToFilter);
+let open_info = document.getElementById('open_info');
+open_info.addEventListener('click', openModal);
 renderResults()

@@ -8,7 +8,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!--info-->
+<nav>
+    <span id="open_info">i</span>
+    <a href="#">Home</a>
+    <!--to do-->
+    <a href="#">PAS 1</a>
+    <a href="#">PAS 2</a>
+    <a href="#">PAS 3</a>
+</nav>
+<div id="modal">
+    <div id="modal-info">
+        <h2>informações sobre o site</h2>
+        <p>
+            Esse site foi feito a partir dos resultados do PAS da UnB, Universidade de Brasília, 
+            do subprograma de 2021-2023. Todas as informações mostradas nesse site foram extraídas 
+            dos resultados individuais disponibilizados de maneira pública pela UnB, 
+            através <a target="_blank"="https://cdn.cebraspe.org.br/pas/arquivos/ED_5_PAS_1_2021-2023_Res_Final_Tipo_D_e_Reda%C3%A7%C3%A3o.pdf">desse link</a>.
+            Agora esá apenas disponível os resultados do PAS1, mas depois que as outras notas forem liberadas, atualizarei as informações aqui.
+        </p>
+        <p>
+            Esse site foi criado para mostrar a classificação de cada aluno em relação aos outros.
+            Assim criando um ranking de todos os alunos que fizeram o PAS nesse subprograma, com a colocação de cada um.
+        </p>
+        <p>
+            Essa interface permite também alterar a ordem por meio do controle da direita, para organizar por outros parâmetros, 
+            como nota na Redação ou no item Tipo D. Isso também muda a posição.
+        </p>
+        <p>
+            Também é possível filtrar as pessoas mostradas através da caixa de texto e do botão para adicionar. Ao digitar os nomes e clicar em adicionar, 
+            as notas dessas pessoas selecionadas serão adicionadas à tabela. A posição de cada um não mudará, será a posição em relação a todos os alunos.
+        </p>
+        <p>
+            É possível ver como as informações usadas nesse site foram extraídas e como o site foi criado através 
+            <a href="https://github.com/LucasMABF/PAS-UnB-ranking">desse repositório</a>, e o site está hospedado 
+            <a href="#">nesse repositório</a>. Para sugerir alterações ou mandar comentários, você pode criar uma 
+            discussão, uma issue, ou um pull-request em um desses dois repositórios.
+        </p>
+        <h3>Termos de uso</h3>
+        <p>
+            Todos os dados usados nesse site são disponibilizados publicamente, e essa ferramenta apenas os apresenta de maneira formatada e organizada.
+            Esse site não coleta nenhuma informação do usuário e também não usa cookies, por si só, é um site estático, porém podem existir cookies e informações 
+            coletadas pelo servidor de hospedagem, no caso, o GitHub pages, por isso deve se levar em consideração os termos de uso e políticas desss serviço.
+        </p>
+    </div>
+</div>
 <h1>Ranking Resultados PAS</h1>
     <div class="controls">
         <input type="text" id="registro" placeholder="Filtrar por pessoa" value="" autocomplete="off"/>
@@ -19,24 +62,22 @@
             <option value="3">Nota Redação</option>
             <option value="4">Nota Item Tipo D</option>
         </select>
-        <!--specific names-->
     </div>
     <div id="registros"></div>
     <div class="database-info">
         <table id="table">
-            <tr><!--dict-->
+            <tr>
                 <th>Posição</th>
                 <th>Nome</th>
-                <th>Nota Final PAS1</th>
-                <th>Somatório Escores Brutos PAS1</th>
-                <th>Nota Redação PAS1</th>
-                <th>Nota Item TIPO D PAS1</th>
+                <th><abbr title="Somatório escores brutos + Redação + item tipo D">Nota Final</abbr></th>
+                <th>Somatório Escores Brutos</th>
+                <th>Nota Redação</th>
+                <th>Nota Item TIPO D</th>
             </tr>
         </table>
     </div>
     <footer>
       <p>Feito Por <a href="https://github.com/lucasmabf" target="_blank">Lucas Mendes</a></p>
-        <p> buy me a &#x1F37A: bitcoin: $bitcoin address ethereum polygon: $ethereum address solana: $solana address bitcoin cash: $bitcoin cash address dogecoin: $dogecoin address</p>
     </footer>
     <script src="Notas_PAS1.js"></script>
     <script src="index.js"></script>
