@@ -10,29 +10,38 @@
 <body>
 <nav>
     <span id="open_info">i</span>
-    <a href="#">Home</a>
-    <!--to do-->
-    <a href="#">PAS 1</a>
-    <a href="#">PAS 2</a>
+    <a href="#" id="geral">Geral</a> 
+    <a href="#" id="pas1">PAS 1</a>
+    <a href="#" id="pas2">PAS 2</a>
     <a href="#">PAS 3</a>
 </nav>
 <div id="modal">
     <div id="modal-info">
-        <h2>informações sobre o site</h2>
+                <h2>informações sobre o site</h2>
         <p>
-            Esse site foi feito a partir dos resultados do PAS da UnB, Universidade de Brasília, 
-            do subprograma de 2021-2023. Todas as informações mostradas nesse site foram extraídas 
-            dos resultados individuais disponibilizados de maneira pública pela UnB, 
-            através <a target="_blank"="https://cdn.cebraspe.org.br/pas/arquivos/ED_5_PAS_1_2021-2023_Res_Final_Tipo_D_e_Reda%C3%A7%C3%A3o.pdf">desse link</a>.
-            Agora esá apenas disponível os resultados do PAS1, mas depois que as outras notas forem liberadas, atualizarei as informações aqui.
+            Esse site foi feito a partir dos resultados do PAS da UnB, Universidade de Brasília,
+            do subprograma de 2021-2023. Todas as informações mostradas nesse site foram extraídas
+            dos resultados individuais disponibilizados de maneira pública pela UnB,
+            através <a target="_blank" href="https://cdn.cebraspe.org.br/pas/arquivos/ED_5_PAS_1_2021-2023_Res_Final_Tipo_D_e_Reda%C3%A7%C3%A3o.pdf">desse link</a>
+            e <a target="_blank" href="https://cdn.cebraspe.org.br/pas/arquivos/ED_16_PAS_2_2021-2023_Res_Final_Tipo_D_Reda%C3%A7%C3%A3o.pdf">desse link</a>.
+            Agora esá apenas disponível os resultados do PAS1 e PAS2, mas depois que as outras provas forem feitas e suas notas liberadas, atualizarei as informações aqui.
         </p>
         <p>
-            Esse site foi criado para mostrar a classificação de cada aluno em relação aos outros.
+            Esse site foi criado para mostrar a classificação geral de cada aluno em relação aos outros.
             Assim criando um ranking de todos os alunos que fizeram o PAS nesse subprograma, com a colocação de cada um.
         </p>
         <p>
-            Essa interface permite também alterar a ordem por meio do controle da direita, para organizar por outros parâmetros, 
+            Essa interface permite também alterar a ordem por meio do controle da direita, para organizar por outros parâmetros,
             como nota na Redação ou no item Tipo D. Isso também muda a posição.
+        </p>
+        <p>
+            Os campos Nota Final PAS1, e PAS2, são a soma de todas as notas de cada prova(escores brutos + redação + tipo D),
+            e são usados apenas nesse site, para comparar os resultados.
+            O mesmo serve para a Nota Garantida, que é para demonstrar de maneira bruta a nota final, com o PAS1, PAS2 e
+            PAS3, com os respectivos pesos. É calculado por Nota Final PAS2 x 1 + Nota Final PAS2 x 2/ 6.
+            Não são necessáriamente como a UnB calcula a nota final, e são usados apenas para comparação e para dar uma
+            ideia geral nesse site. Se quiser propor uma maneira melhor de comparar esses resultados, como a conta
+            realmente usada pela UnB, entre em contato por um dos links abaixo.
         </p>
         <p>
             Também é possível filtrar as pessoas mostradas através da caixa de texto e do botão para adicionar. Ao digitar os nomes e clicar em adicionar, 
@@ -52,34 +61,38 @@
         </p>
     </div>
 </div>
-<h1>Ranking Resultados PAS</h1>
+<h1 id="title">Ranking Resultados PAS</h1>
     <div class="controls">
         <input type="text" id="registro" placeholder="Filtrar por pessoa" value="" autocomplete="off"/>
         <button id="filterbutton">adicionar</button>
         <select id="orderby">
-            <option value="1">Nota Final</option>
-            <option value="2">Somatório Escores Brutos</option>
-            <option value="3">Nota Redação</option>
-            <option value="4">Nota Item Tipo D</option>
+            <option value="1">Nota Garantida</option>
+            <option value="2">Nota Final PAS1</option>
+            <option value="3">Nota Final PAS2</option>
         </select>
     </div>
     <div id="registros"></div>
     <div class="database-info">
         <table id="table">
-            <tr>
-                <th>Posição</th>
-                <th>Nome</th>
-                <th><abbr title="Somatório escores brutos + Redação + item tipo D">Nota Final</abbr></th>
-                <th>Somatório Escores Brutos</th>
-                <th>Nota Redação</th>
-                <th>Nota Item TIPO D</th>
-            </tr>
+            <thead id="header">
+                <tr>
+                    <th>Posição</th>
+                    <th>Nome</th>
+                    <th><abbr title="Nota final PAS1 + PAS2, com pesos 1 e 2">Nota Garantida</abbr></th>
+                    <th>Nota Final PAS1</th>
+                    <th>Nota Final PAS2</th>
+                </tr>
+            </thead>
+            <tbody id="table-data">
+            </tbody>
         </table>
     </div>
     <footer>
       <p>Feito Por <a href="https://github.com/lucasmabf" target="_blank">Lucas Mendes</a></p>
     </footer>
     <script src="Notas_PAS1.js"></script>
+    <script src="Notas_PAS2.js"></script>
+    <script src="Notas_PAS1-PAS2.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

@@ -1,48 +1,114 @@
-let notas_PAS1 = getNotasPAS1();
-let filter = [];
+let data = getNotasPAS1_PAS2();
+filter = [];
 
-function renderResults(){
-    let table = document.getElementById('table');
-    table.innerHTML = ''
-    let HeadearRow = document.createElement('tr')
+
+function load_PAS1_PAS2(){
+    data = getNotasPAS1_PAS2();
+    let orderby = document.getElementById('orderby');
+    orderby.innerHTML = '';
+    let header = document.getElementById('header');
+    header.innerHTML = '';
+    let HeaderRow = document.createElement('tr');
+    let titles = ['Posição', 'Nome', '<abbr title="Nota final PAS1 + PAS2, com pesos 1 e 2">Nota Garantida</abbr>', 'Nota Final PAS1', 'Nota Final PAS2'];
+    for (let t = 0; t < titles.length; t++){
+        let NewHeader = document.createElement('th');
+        NewHeader.innerHTML = titles[t];
+        HeaderRow.appendChild(NewHeader);
+        if( t > 1){
+            let newOrder = document.createElement('option');
+            newOrder.value = t - 1;
+            newOrder.innerHTML = titles[t];
+            orderby.appendChild(newOrder)
+        }
+    }
+    header.appendChild(HeaderRow);
+    let title = document.getElementById('title');
+    title.innerHTML = 'Ranking Resultados PAS';
+    renderResults();
+}
+
+function load_PAS1(){
+    data = getNotasPAS1();
+    let orderby = document.getElementById('orderby');
+    orderby.innerHTML = '';
+    let header = document.getElementById('header');
+    header.innerHTML = '';
+    let HeaderRow = document.createElement('tr');
     let titles = ['Posição', 'Nome', '<abbr title="Somatório escores brutos + Redação + item tipo D">Nota Final</abbr>', 'Somatório Escores Brutos', 'Nota Redação', 'Nota Item Tipo D'];
     for (let t = 0; t < titles.length; t++){
         let NewHeader = document.createElement('th');
         NewHeader.innerHTML = titles[t];
-        HeadearRow.appendChild(NewHeader);
+        HeaderRow.appendChild(NewHeader);
+        if( t > 1){
+            let newOrder = document.createElement('option');
+            newOrder.value = t - 1;
+            newOrder.innerHTML = titles[t];
+            orderby.appendChild(newOrder)
+        }
     }
-    table.appendChild(HeadearRow)
+    header.appendChild(HeaderRow);
+    let title = document.getElementById('title');
+    title.innerHTML = 'Ranking Resultados PAS1';
+    renderResults();
+}
+
+function load_PAS2(){
+    data = getNotasPAS2()
+    let orderby = document.getElementById('orderby');
+    orderby.innerHTML = '';
+    let header = document.getElementById('header');
+    header.innerHTML = '';
+    let HeaderRow = document.createElement('tr');
+    let titles = ['Posição', 'Nome', '<abbr title="Somatório escores brutos + Redação + item tipo D">Nota Final</abbr>', 'Somatório Escores Brutos', 'Nota Redação', 'Nota Item Tipo D'];
+    for (let t = 0; t < titles.length; t++){
+        let NewHeader = document.createElement('th');
+        NewHeader.innerHTML = titles[t];
+        HeaderRow.appendChild(NewHeader);
+        if( t > 1){
+            let newOrder = document.createElement('option');
+            newOrder.value = t - 1;
+            newOrder.innerHTML = titles[t];
+            orderby.appendChild(newOrder)
+        }
+    }
+    header.appendChild(HeaderRow);
+    let title = document.getElementById('title');
+    title.innerHTML = 'Ranking Resultados PAS2';
+    renderResults();
+}
+
+function renderResults(){
+    let table = document.getElementById('table-data');
+    table.innerHTML = '';
     if(filter.length != 0){
-        for(let i = 0; i < notas_PAS1.length; i++){
-            let c = 0;
-            if(filter.indexOf(notas_PAS1[i][0].toLowerCase().trim()) != -1){
-                c++;
-                let newRow = document.createElement('tr')
-                table.appendChild(newRow)
-                for(let j = 0; j <= notas_PAS1[i].length; j++){
-                    let newTd = document.createElement('td');
-                    if(j == 0){
-                        newTd.innerHTML = i + 1;
-                    }else{
-                        newTd.innerHTML = notas_PAS1[i][j - 1];
-                    }
-                    newRow.appendChild(newTd);
-                }
-            }
-            if (c == filter.length){
-                break
+        for(let i = 0; i < data.length; i++){
+            for (let k = 0; k < filter.length; k++){
+                if(data[i][0].toLowerCase().trim().includes(filter[k])){
+                    let newRow = document.createElement('tr')
+                    table.appendChild(newRow)
+                    for(let j = 0; j <= data[i].length; j++){
+                        let newTd = document.createElement('td');
+                        if(j == 0){
+                            newTd.innerHTML = i + 1;
+                        }else{
+                            newTd.innerHTML = data[i][j - 1];
+                        }
+                        newRow.appendChild(newTd);   
+                    }  
+                    break;
+                } 
             }
         } 
     }else{
-        for(let i = 0; i < notas_PAS1.length; i++){
+        for(let i = 0; i < data.length; i++){
             let newRow = document.createElement('tr')
             table.appendChild(newRow)
-            for(let j = 0; j <= notas_PAS1[i].length; j++){
+            for(let j = 0; j <= data[i].length; j++){
                 let newTd = document.createElement('td');
                 if(j == 0){
                     newTd.innerHTML = i + 1;
                 }else{
-                    newTd.innerHTML = notas_PAS1[i][j - 1];
+                    newTd.innerHTML = data[i][j - 1];
                 }
                 newRow.appendChild(newTd);
             }
@@ -53,12 +119,25 @@ function renderResults(){
 function changeOrder(){
     let element = document.getElementById('orderby');
     let order = element.value;
-    if (order < 2 || order > 4){
-        notas_PAS1 = getNotasPAS1()
+    let title = document.getElementById('title');
+    let max = 0
+    if (title.innerHTML == 'Ranking Resultados PAS'){
+        max = 3;
     }else{
-        notas_PAS1.sort(function(a, b){
+        max = 4;
+    }
+    if (order < 2 || order > max){
+        if (title.innerHTML == 'Ranking Resultados PAS1'){
+            data = getNotasPAS1();
+        }else if (title.innerHTML == 'Ranking Resultados PAS2'){
+            data = getNotasPAS2();
+        }else{
+        data = getNotasPAS1_PAS2();
+        }
+    }else{
+        data.sort(function(a, b){
             if(b[order] == a[order]){
-                return b[1] - a[1]
+                return b[1] - a[1] // 1 must be the most important field
             }else{
                 return b[order] - a[order]
             }
@@ -128,4 +207,11 @@ filtertextbox.addEventListener('keydown', addToFilter);
 filterbutton.addEventListener('click', addToFilter);
 let open_info = document.getElementById('open_info');
 open_info.addEventListener('click', openModal);
-renderResults()
+let geral = document.getElementById('geral');
+geral.addEventListener('click', load_PAS1_PAS2)
+let pas1 = document.getElementById('pas1');
+pas1.addEventListener('click', load_PAS1);
+let pas2 = document.getElementById('pas2');
+pas2.addEventListener('click', load_PAS2);
+
+renderResults();

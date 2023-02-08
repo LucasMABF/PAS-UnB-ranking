@@ -8,9 +8,9 @@ cursor.execute('USE Resultados_PAS')
 cursor.execute('CREATE TABLE IF NOT EXISTS `resultados_PAS`('
                '`número inscrição` INT NOT NULL, '
                '`nome` VARCHAR(75), '
-               '`somatório escores brutos PAS1` FLOAT, '
-               '`nota item tipo D PAS1` FLOAT, '
-               '`nota redação PAS1` FLOAT, '
+               '`somatório escores brutos PAS1` FLOAT NOT NULL, '
+               '`nota item tipo D PAS1` FLOAT NOT NULL, '
+               '`nota redação PAS1` FLOAT NOT NULL, '
                'PRIMARY KEY(`número inscrição`)'
                ') DEFAULT CHARSET = utf8;')
 
