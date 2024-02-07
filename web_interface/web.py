@@ -3,6 +3,11 @@ import mysql.connector as sql
 from dotenv import load_dotenv
 import os
 
+# Observação de implementação:
+# Para filtrar os registros por nome eu não achei uma maneira de pegar uma lista ou tupla em python e passar
+# para o comando MySQL sem usar f strings. Que não é indicado por questões de segurança, porém parece que o código
+# está bem sanitizado e não consegui fazer uma SQL injection, então deixei assim.
+
 
 db = sql.connect(host='localhost', user='root', password='')
 cursor = db.cursor()

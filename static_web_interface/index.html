@@ -13,7 +13,7 @@
     <a href="#" id="geral">Geral</a> 
     <a href="#" id="pas1">PAS 1</a>
     <a href="#" id="pas2">PAS 2</a>
-    <a href="#">PAS 3</a>
+    <a href="#" id ="pas3">PAS 3</a>
 </nav>
 <div id="modal">
     <div id="modal-info">
@@ -70,6 +70,9 @@
             <option value="2">Nota Final PAS1</option>
             <option value="3">Nota Final PAS2</option>
         </select>
+        <select id="cursos">
+            <option value="">Filtrar por curso</option>
+        </select>
     </div>
     <div id="registros"></div>
     <div class="database-info">
@@ -78,9 +81,12 @@
                 <tr>
                     <th>Posição</th>
                     <th>Nome</th>
-                    <th><abbr title="Nota final PAS1 + PAS2, com pesos 1 e 2">Nota Garantida</abbr></th>
+                    <th>Argumento Final</th>
                     <th>Nota Final PAS1</th>
                     <th>Nota Final PAS2</th>
+                    <th>Nota Final Pas3</th>
+                    <th>Curso</th>
+                    <th>Posição curso</th>
                 </tr>
             </thead>
             <tbody id="table-data">
@@ -92,7 +98,9 @@
     </footer>
     <script src="Notas_PAS1.js"></script>
     <script src="Notas_PAS2.js"></script>
-    <script src="Notas_PAS1-PAS2.js"></script>
+    <script src="Notas_PAS3.js"></script>
+    <script src="cursos.js"></script>
+    <script src="final.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
