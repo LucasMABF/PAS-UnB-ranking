@@ -204,3 +204,7 @@ nav a:hover{
 abbr{
     text-decoration: none;
 }
+
+#modal a{
+    color: #ECA400;
+}

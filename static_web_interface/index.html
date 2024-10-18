@@ -22,9 +22,7 @@
             Esse site foi feito a partir dos resultados do PAS da UnB, Universidade de Brasília,
             do subprograma de 2021-2023. Todas as informações mostradas nesse site foram extraídas
             dos resultados individuais disponibilizados de maneira pública pela UnB,
-            através <a target="_blank" href="https://cdn.cebraspe.org.br/pas/arquivos/ED_5_PAS_1_2021-2023_Res_Final_Tipo_D_e_Reda%C3%A7%C3%A3o.pdf">desse link</a>
-            e <a target="_blank" href="https://cdn.cebraspe.org.br/pas/arquivos/ED_16_PAS_2_2021-2023_Res_Final_Tipo_D_Reda%C3%A7%C3%A3o.pdf">desse link</a>.
-            Agora esá apenas disponível os resultados do PAS1 e PAS2, mas depois que as outras provas forem feitas e suas notas liberadas, atualizarei as informações aqui.
+            através <a href="https://www.cebraspe.org.br/pas/subprogramas/2021_2023/3">dessa página</a>
         </p>
         <p>
             Esse site foi criado para mostrar a classificação geral de cada aluno em relação aos outros.
@@ -35,13 +33,10 @@
             como nota na Redação ou no item Tipo D. Isso também muda a posição.
         </p>
         <p>
-            Os campos Nota Final PAS1, e PAS2, são a soma de todas as notas de cada prova(escores brutos + redação + tipo D),
+            Os campos Nota Final PAS1, PAS2 e PAS3, são a soma de todas as notas de cada prova(escores brutos + redação + tipo D),
             e são usados apenas nesse site, para comparar os resultados.
-            O mesmo serve para a Nota Garantida, que é para demonstrar de maneira bruta a nota final, com o PAS1, PAS2 e
-            PAS3, com os respectivos pesos. É calculado por Nota Final PAS2 x 1 + Nota Final PAS2 x 2/ 6.
             Não são necessáriamente como a UnB calcula a nota final, e são usados apenas para comparação e para dar uma
-            ideia geral nesse site. Se quiser propor uma maneira melhor de comparar esses resultados, como a conta
-            realmente usada pela UnB, entre em contato por um dos links abaixo.
+            ideia geral nesse site.
         </p>
         <p>
             Também é possível filtrar as pessoas mostradas através da caixa de texto e do botão para adicionar. Ao digitar os nomes e clicar em adicionar, 
@@ -49,15 +44,12 @@
         </p>
         <p>
             É possível ver como as informações usadas nesse site foram extraídas e como o site foi criado através 
-            <a href="https://github.com/LucasMABF/PAS-UnB-ranking">desse repositório</a>, e o site está hospedado 
-            <a href="#">nesse repositório</a>. Para sugerir alterações ou mandar comentários, você pode criar uma 
-            discussão, uma issue, ou um pull-request em um desses dois repositórios.
+            <a href="https://github.com/LucasMABF/PAS-UnB-ranking">desse repositório</a>.
         </p>
         <h3>Termos de uso</h3>
         <p>
             Todos os dados usados nesse site são disponibilizados publicamente, e essa ferramenta apenas os apresenta de maneira formatada e organizada.
-            Esse site não coleta nenhuma informação do usuário e também não usa cookies, por si só, é um site estático, porém podem existir cookies e informações 
-            coletadas pelo servidor de hospedagem, no caso, o GitHub pages, por isso deve se levar em consideração os termos de uso e políticas desss serviço.
+            Esse site não coleta nenhuma informação do usuário e também não usa cookies, por si só, é um site estático.
         </p>
     </div>
 </div>
@@ -66,9 +58,10 @@
         <input type="text" id="registro" placeholder="Filtrar por pessoa" value="" autocomplete="off"/>
         <button id="filterbutton">adicionar</button>
         <select id="orderby">
-            <option value="1">Nota Garantida</option>
+            <option value="1">Argumento Final</option>
             <option value="2">Nota Final PAS1</option>
             <option value="3">Nota Final PAS2</option>
+            <option value="4">Nota Final PAS3</option>
         </select>
         <select id="cursos">
             <option value="">Filtrar por curso</option>

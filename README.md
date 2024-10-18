@@ -18,7 +18,6 @@ e o resultado geral, ordená-los de acordo com diferentes campos, filtrá-los po
 
 - Eu decidi não disponibilizar essa página, portanto se quiser ter acesso, terá que baixar a pasta 
 `static_web_interface` e accessar localmente, abrindo o arquivo `index.html`.
-- 
 ---
 # Etapas
 
@@ -56,7 +55,7 @@ que foi ordenada por outro campo pelo usuário, é melhor recarregar toda a list
 JavaScript ordenar de novo.
 
 - Não tenho certeza se minha lógica por trás dessa implementação está muito correta, até porque achei os tempos de carregamento 
-muito parecidos. Mas a minha ideia era que para ordenar a lista de novo o código deveria rodar em O(n log(n)) e só para carregar 
+muito parecidos. Mas a minha ideia era que para ordenar a lista de novo, o código deveria rodar em O(n log(n)) e só para carregar 
 a lista novamente deveria ser O(n) ou até O(1), para n sendo o número de alunos registrados. 
 Mas não tenho certeza se esses dados  estão corretos.
 

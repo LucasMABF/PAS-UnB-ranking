@@ -228,18 +228,12 @@ function changeOrder(){
     let element = document.getElementById('orderby');
     let order = element.value;
     let title = document.getElementById('title');
-    let max = 0
-    if (title.innerHTML == 'Ranking Resultados PAS'){
-        max = 6;
-    }else{
-        max = 4;
-    }
-    if (order < 2 || order > max){
+    if (order < 2 || order > 4){
         if (title.innerHTML == 'Ranking Resultados PAS1'){
             data = getNotasPAS1();
         }else if (title.innerHTML == 'Ranking Resultados PAS2'){
             data = getNotasPAS2();
-        }else if (title.innerHTML == 'Ranking Resultados PAS 3'){
+        }else if (title.innerHTML == 'Ranking Resultados PAS3'){
             data = getNotasPAS3();
         }else{
             data = getFinal();
